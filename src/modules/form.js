@@ -14,6 +14,9 @@ export function createForm() {
     emailInput.type = 'email';
     emailInput.id = 'email';
     emailInput.name = 'email';
+    emailInput.required = true;
+    emailInput.pattern = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$"; // basic email pattern
+    emailInput.maxLength = 254;
     const emailError = document.createElement('span');
     emailError.className = 'error';
     emailDiv.appendChild(emailLabel);
@@ -30,6 +33,9 @@ export function createForm() {
     countryInput.type = 'text';
     countryInput.id = 'country';
     countryInput.name = 'country';
+    countryInput.required = true;
+    countryInput.minLength = 2;
+    countryInput.maxLength = 56;
     const countryError = document.createElement('span');
     countryError.className = 'error';
     countryDiv.appendChild(countryLabel);
@@ -46,6 +52,10 @@ export function createForm() {
     postalInput.type = 'text';
     postalInput.id = 'postal-code';
     postalInput.name = 'postal-code';
+    postalInput.required = true;
+    postalInput.pattern = "^[A-Za-z0-9 \\-]{3,10}$"; // generic postal code pattern
+    postalInput.minLength = 3;
+    postalInput.maxLength = 10;
     const postalError = document.createElement('span');
     postalError.className = 'error';
     postalDiv.appendChild(postalLabel);
@@ -62,6 +72,10 @@ export function createForm() {
     passwordInput.type = 'password';
     passwordInput.id = 'password';
     passwordInput.name = 'password';
+    passwordInput.required = true;
+    passwordInput.minLength = 8;
+    passwordInput.maxLength = 128;
+    passwordInput.pattern = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d!@#$%^&*()_+\\-=]{8,}$"; // at least 1 letter and 1 number
     const passwordError = document.createElement('span');
     passwordError.className = 'error';
     passwordDiv.appendChild(passwordLabel);
@@ -78,6 +92,9 @@ export function createForm() {
     confirmPasswordInput.type = 'password';
     confirmPasswordInput.id = 'confirm-password';
     confirmPasswordInput.name = 'confirm-password';
+    confirmPasswordInput.required = true;
+    confirmPasswordInput.minLength = 8;
+    confirmPasswordInput.maxLength = 128;
     const confirmPasswordError = document.createElement('span');
     confirmPasswordError.className = 'error';
     confirmPasswordDiv.appendChild(confirmPasswordLabel);
