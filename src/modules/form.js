@@ -15,10 +15,11 @@ export function createForm() {
     emailInput.id = 'email';
     emailInput.name = 'email';
     emailInput.required = true;
-    emailInput.pattern = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$"; // basic email pattern
+    emailInput.pattern = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$";
     emailInput.maxLength = 254;
+    emailInput.placeholder = 'example@email.com';
     const emailError = document.createElement('span');
-    emailError.className = 'error';
+    emailError.className = 'email-error error';
     emailDiv.appendChild(emailLabel);
     emailDiv.appendChild(emailInput);
     emailDiv.appendChild(emailError);
@@ -36,8 +37,9 @@ export function createForm() {
     countryInput.required = true;
     countryInput.minLength = 2;
     countryInput.maxLength = 56;
+    countryInput.placeholder = 'Country name';
     const countryError = document.createElement('span');
-    countryError.className = 'error';
+    countryError.className = 'country-error error';
     countryDiv.appendChild(countryLabel);
     countryDiv.appendChild(countryInput);
     countryDiv.appendChild(countryError);
@@ -53,11 +55,12 @@ export function createForm() {
     postalInput.id = 'postal-code';
     postalInput.name = 'postal-code';
     postalInput.required = true;
-    postalInput.pattern = "^[A-Za-z0-9 \\-]{3,10}$"; // generic postal code pattern
+    postalInput.pattern = "^[A-Za-z0-9 \\-]{3,10}$";
     postalInput.minLength = 3;
     postalInput.maxLength = 10;
+    postalInput.placeholder = 'e.g. 12345 or A1B 2C3';
     const postalError = document.createElement('span');
-    postalError.className = 'error';
+    postalError.className = 'postal-error error';
     postalDiv.appendChild(postalLabel);
     postalDiv.appendChild(postalInput);
     postalDiv.appendChild(postalError);
@@ -75,9 +78,10 @@ export function createForm() {
     passwordInput.required = true;
     passwordInput.minLength = 8;
     passwordInput.maxLength = 128;
-    passwordInput.pattern = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d!@#$%^&*()_+\\-=]{8,}$"; // at least 1 letter and 1 number
+    passwordInput.pattern = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d!@#$%^&*()_+\\-=]{8,}$";
+    passwordInput.placeholder = 'At least 8 characters';
     const passwordError = document.createElement('span');
-    passwordError.className = 'error';
+    passwordError.className = 'password-error error';
     passwordDiv.appendChild(passwordLabel);
     passwordDiv.appendChild(passwordInput);
     passwordDiv.appendChild(passwordError);
@@ -95,8 +99,9 @@ export function createForm() {
     confirmPasswordInput.required = true;
     confirmPasswordInput.minLength = 8;
     confirmPasswordInput.maxLength = 128;
+    confirmPasswordInput.placeholder = 'Repeat your password';
     const confirmPasswordError = document.createElement('span');
-    confirmPasswordError.className = 'error';
+    confirmPasswordError.className = 'confirmPassword-error error';
     confirmPasswordDiv.appendChild(confirmPasswordLabel);
     confirmPasswordDiv.appendChild(confirmPasswordInput);
     confirmPasswordDiv.appendChild(confirmPasswordError);
