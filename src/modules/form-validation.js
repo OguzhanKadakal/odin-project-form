@@ -33,6 +33,12 @@ export function formValidation() {
     }
   });
 
+  country.addEventListener('keypress', (e) => {
+  if (!/[A-Za-z .'-]/.test(e.key)) {
+    e.preventDefault();
+  }
+});
+
   postal.addEventListener('change', () => {
     if (postal.validity.valueMissing) {
       postalError.textContent = 'Postal code is required.';

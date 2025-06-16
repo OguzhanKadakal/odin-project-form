@@ -38,6 +38,7 @@ export function createForm() {
     countryInput.minLength = 2;
     countryInput.maxLength = 56;
     countryInput.placeholder = 'Country name';
+    countryInput.pattern = "^[A-Za-z .'-]+$";
     const countryError = document.createElement('span');
     countryError.className = 'country-error error';
     countryDiv.appendChild(countryLabel);
