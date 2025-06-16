@@ -11,7 +11,7 @@ export function formValidation() {
   const confirmPassword = document.querySelector('#confirm-password');
   const confirmPasswordError = document.querySelector('.confirmPassword-error');
 
-  email.addEventListener('change', () => {
+  email.addEventListener('input', () => {
     if (email.validity.valueMissing) {
       emailError.textContent = 'Email is required.';
     } else if (email.validity.typeMismatch || email.validity.patternMismatch) {
@@ -21,7 +21,7 @@ export function formValidation() {
     }
   });
 
-  country.addEventListener('change', () => {
+  country.addEventListener('input', () => {
     if (country.validity.valueMissing) {
       countryError.textContent = 'Country is required.';
     } else if (country.value.length < 2) {
@@ -39,7 +39,7 @@ export function formValidation() {
   }
 });
 
-  postal.addEventListener('change', () => {
+  postal.addEventListener('input', () => {
     if (postal.validity.valueMissing) {
       postalError.textContent = 'Postal code is required.';
     } else if (postal.validity.patternMismatch) {
@@ -53,7 +53,7 @@ export function formValidation() {
     }
   });
 
-  password.addEventListener('change', () => {
+  password.addEventListener('input', () => {
     if (password.validity.valueMissing) {
       passwordError.textContent = 'Password is required.';
     } else if (password.value.length < 8) {
@@ -65,10 +65,10 @@ export function formValidation() {
     } else {
       passwordError.textContent = '';
     }
-    confirmPassword.dispatchEvent(new Event('change'));
+    confirmPassword.dispatchEvent(new Event('input'));
   });
 
-  confirmPassword.addEventListener('change', () => {
+  confirmPassword.addEventListener('input', () => {
     if (confirmPassword.validity.valueMissing) {
       confirmPasswordError.textContent = 'Please confirm your password.';
     } else if (confirmPassword.value !== password.value) {
@@ -87,6 +87,8 @@ export function formValidation() {
       !confirmPassword.validity.valid
     ) {
       e.preventDefault();
+    } else {
+        alert('Thank you for submitting the form!');
     }
   });
 }
